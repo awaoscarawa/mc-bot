@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MC Bot 3D 控制台</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Minecraft 机器人控制台</h1>
+
+        <!-- 连接面板 -->
+        <div class="card">
+            <h2>⚙️ 服务器连接</h2>
+            <label>地址: <input id="host" value="localhost"></label>
+            <label>端口: <input id="port" value="25565"></label>
+            <label>用户名: <input id="username" value="MyBot"></label>
+            <label>认证: <select id="auth"><option value="offline">离线</option><option value="microsoft">微软</option></select></label>
+            <label>版本: <input id="version" placeholder="自动检测"></label>
+            <button id="connectBtn">连接</button>
+            <button id="disconnectBtn" disabled>断开</button>
+            <button id="viewerBtn" style="background:#28a745;">🔍 打开实时画面</button>
+            <hr>
+            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+                <button id="killauraOnBtn" style="background:#e74c3c;">⚔️ 杀戮ON</button>
+                <button id="killauraOffBtn" style="background:#c0392b;">⚔️ 杀戮OFF</button>
+                <button id="crystalOnBtn" style="background:#8e44ad;">💎 水晶ON</button>
+                <button id="crystalOffBtn" style="background:#6c3483;">💎 水晶OFF</button>
+                <button id="anchorOnBtn" style="background:#f39c12;">🪨 锚ON</button>
+                <button id="anchorOffBtn" style="background:#d68910;">🪨 锚OFF</button>
+                <button id="auraStopBtn" style="background:#95a5a6;">🛑 全停</button>
+            </div>
+        </div>
+
+        <!-- 3D 地图 + 移动控制 + 背包区域 -->
+        <div class="card">
+            <h2>🗺️ 实时操作区</h2>
+            <div class="play-area">
+                <!-- 左侧：3D 地图 -->
+                <div id="threeContainer" class="three-view"></div>
+                <!-- 右侧：移动摇杆 -->
+                <div class="move-pad">
+                    <div class="move-row">
+                        <button class="move-btn" data-dir="forward" id="btn-forward">▲</button>
+                    </div>
+                    <div class="move-row">
+                        <button class="move-btn" data-dir="left" id="btn-left">◀</button>
+                        <button class="move-btn" data-dir="back" id="btn-back">▼</button>
+                        <button class="move-btn" data-dir="right" id="btn-right">▶</button>
+                    </div>
+                    <div class="move-row">
+                        <button class="move-btn jump-btn" data-dir="jump" id="btn-jump">␣</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 背包显示 -->
+            <div class="inventory-bar" id="inventoryBar"></div>
+        </div>
+
+        <!-- 聊天 -->
+        <div class="card">
+            <h2>💬 聊天消息</h2>
+            <div id="chatBox" class="chat-box"></div>
+        </div>
+
+        <!-- 终端 -->
+        <div class="card">
+            <h2>🖥️ 命令终端</h2>
+            <div id="terminalOutput" class="terminal-output"></div>
+            <input id="terminalInput" placeholder="输入命令，例如 say Hello" disabled>
+            <div style="margin-top:10px;font-size:0.9rem;color:#aaa;">
+                命令: <code>say</code> <code>pos</code> <code>health</code> <code>list</code> <code>pm</code> <code>help</code> <code>goto x y z</code> <code>stop</code> 及光环命令
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+body { background: #1e1e2f; color: #eee; font-family: Consolas, monospace; padding: 20px; }
+.container { max-width: 1100px; margin: auto; }
+h1 { text-align: center; color: #61dafb; }
+.card { background: #2d2d44; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+input, select, button { padding: 8px; margin: 5px; background: #1e1e2f; color: white; border: 1px solid #555; border-radius: 6px; }
+button { background: #0d6efd; cursor: pointer; font-weight: bold; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.chat-box, .terminal-output { height: 200px; overflow-y: auto; background: #0c0c1a; border: 1px solid #444; padding: 10px; margin: 10px 0; font-family: Consolas, monospace; }
+#terminalInput { width: 100%; }
+code { background: #3a3a5a; padding: 2px 6px; border-radius: 4px; }
+
+/* 操作区布局 */
+.play-area { display: flex; gap: 20px; margin-bottom: 20px; }
+.three-view { flex: 3; height: 400px; background: #111; border: 1px solid #444; border-radius: 8px; }
+
+/* 移动按钮面板 */
+.move-pad { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+.move-row { display: flex; gap: 5px; }
+.move-btn {
+    width: 50px; height: 50px;
+    font-size: 24px; font-weight: bold;
+    background: #3a3a5a; border: 2px solid #5a5a8a; border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.1s;
+}
+.move-btn:active { background: #5a5a9a; }
+.jump-btn { width: 110px; }
+
+/* 背包栏 */
+.inventory-bar {
+    display: flex; gap: 5px; overflow-x: auto;
+    background: #1a1a2e; padding: 10px; border-radius: 8px;
+    border: 1px solid #444;
+    min-height: 60px;
+    align-items: center;
+}
+.inventory-slot {
+    width: 50px; height: 50px;
+    background: #2d2d44; border: 1px solid #555;
+    border-radius: 6px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    font-size: 12px;
+    color: #ddd;
+    flex-shrink: 0;
+}
+.inventory-slot img {
+    width: 32px; height: 32px;
+}
+.inventory-count {
+    font-size: 10px;
+    color: #aaa;
+}
