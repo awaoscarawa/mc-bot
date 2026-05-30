@@ -9,8 +9,7 @@
 
 </div>
 
-> **注意**：点击 English 会跳转到英文版文档（需在仓库根目录创建 `README.en.md` 文件）。  
-> 中文版内容如下：
+
 
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0-green.svg)](https://nodejs.org/)
 [![mineflayer](https://img.shields.io/badge/mineflayer-4.15.0-blue)](https://github.com/PrismarineJS/mineflayer)
